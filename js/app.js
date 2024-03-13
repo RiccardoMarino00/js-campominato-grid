@@ -31,7 +31,7 @@ const btnPlay = document.querySelector(".play-btn");
 // })
 
 // Livelli di difficoltà
-const  selectElement = document.getElementById("select-difficulty").selectIndex;
+const  selectElement = document.getElementById("select-difficulty").value;
 
 btnPlay.addEventListener("click", function(){
     // SE utente seleziona easy al click sul tasto play deve comparire una griglia 10x10
