@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    color: blue;
+}
+
 body {
     background-color: rgb(105, 182, 17);
     height: 100vh;
@@ -14,7 +19,6 @@ body {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    display: none;
 }
 
 .square {
@@ -23,6 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .bg-lightblue {
@@ -31,4 +36,12 @@ body {
 
 .section-campo {
     padding: 10px;
+}
+
+.play-btn {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(35, 5, 123);
+    font-weight: bolder;
 }

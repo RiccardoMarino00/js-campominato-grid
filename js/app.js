@@ -1,36 +1,40 @@
-// Recupero elemento contenitore
-const containerElement = document.querySelector(".container");
-// Dichiaro una costante contenente la dimensione di un lato
-const size = 10;
-// Dichiaro una costante contenente il numero di celle da far stare nel contenitore attraverso il calcolo dell'area del contenitore (quadrato)
-const numberOfCell = size * size;
-// Recupero bottone play
-const btnPlay = document.querySelector("play-btn")
-// Creo un ciclo for per stamparmi 100 quadrati nel mio contenitore containerElement
-for (let i = 0; i < numberOfCell; i++){
-    // Dichiaro una costante per crare il mio elemento contenitore come oggetto
-    const divElement = document.createElement("div"); // obj
-    // Aggiungo la classe square a divElement
-    divElement.className = "square"
-    // Appendo tutti i div uno dopo l'altro 
-    containerElement.append(divElement)
-    // Aggiungo un event listener che cambia il colore del quadrato in azzurro al mio click e ad un ulteriore click lo toglie ( grazie a toggle)
-    divElement.addEventListener("click", function () {
 
-        divElement.classList.toggle("bg-lightblue");
-    })
-}
 
-// Creo una funzione che al click sul tasto play imposta la classe display: block all'elemento contenitore
-function playOnClick (disp){
-    // Se ha come classe display none allora falla diventare display: block
-    if (containerElement.style.display="none"){
-        containerElement.style.display="block"
-    }
-}
+const easyDifficulty = document.getElementById("facile")
+const mediumDifficulty = document.getElementById("medio")
+const hardDifficulty = document.getElementById("difficile")
+const btnPlay = document.querySelector(".play-btn");
 
 // Aggiungo un event listener che al click su play fa partire la funzione playOnclick
-btnPlay.addEventListener("clcik", function(){
-    function playOnClick (btnPlay)
+btnPlay.addEventListener("click", function () {
+    // Recupero elemento contenitore
+    const containerElement = document.querySelector(".container");
+    // Dichiaro una costante contenente la dimensione di un lato
+    const size = 10;
+    // Dichiaro una costante contenente il numero di celle da far stare nel contenitore attraverso il calcolo dell'area del contenitore (quadrato)
+    const numberOfCell = size * size;
+    // Recupero bottone play
+    // Creo un ciclo for per stamparmi 100 quadrati nel mio contenitore containerElement
+    for (let i = 0; i < numberOfCell; i++) {
+        // Dichiaro una costante numero per avere i quadrati numerati
+        const num = i + 1;
+        // Dichiaro una costante per crare il mio elemento square come oggetto
+        const squareElement = document.createElement("div"); // obj
+        // Aggiungo la classe square a divElement
+        squareElement.className = "square";
+        // Appendo tutti i div uno dopo l'altro 
+        containerElement.append(squareElement);
+        // Aggiungo al quadrato il suo rispettivo numero
+        squareElement.innerHTML = num
+        // Aggiungo un event listener che cambia il colore del quadrato in azzurro al mio click e ad un ulteriore click lo toglie ( grazie a toggle)
+        squareElement.addEventListener("click", function () {
 
+            squareElement.classList.toggle("bg-lightblue");
+        })
+    }
 })
+
+// Livelli di difficoltà
+// SE utente seleziona easy al click sul tasto play deve comparire una griglia 10x10
+// INVECE SE seleziona medium al click sul tasto play deve comparire una griglia 9x9
+// ALTRIMENTI al click sul tasto play deve comparire una griglia 7x7
